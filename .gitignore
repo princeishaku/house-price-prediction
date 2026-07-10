@@ -15,8 +15,11 @@ venv/
 # Mac
 .DS_Store
 
-# Model Cache
+# Ignore all pickle files
 *.pkl
+
+# Except the deployed model
+!models/house_price_pipeline.pkl
 
 # Environment
 .env

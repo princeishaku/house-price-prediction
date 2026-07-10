@@ -1,0 +1,300 @@
+/* ==========================================
+   GENERAL
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f7fb;
+    color:#333;
+    line-height:1.6;
+}
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+nav{
+    background:#1d3557;
+    color:#fff;
+    padding:22px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero{
+    text-align:center;
+    padding:50px 20px;
+    background:linear-gradient(135deg,#2563eb,#0f766e);
+    color:white;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:800px;
+    margin:auto;
+    font-size:18px;
+}
+
+/* ==========================================
+   MAIN CONTAINER
+========================================== */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+    background:white;
+    border-radius:15px;
+    padding:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+/* ==========================================
+   FORM
+========================================== */
+
+form h2{
+    margin-bottom:30px;
+    color:#1d3557;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+input,
+select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
+
+input:focus,
+select:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 6px rgba(37,99,235,.25);
+}
+
+button{
+    margin-top:35px;
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+/* ==========================================
+   RESULT
+========================================== */
+
+.result{
+    margin-top:40px;
+    padding:30px;
+    background:#ecfdf5;
+    border-left:8px solid #16a34a;
+    border-radius:10px;
+    text-align:center;
+}
+
+.result h1{
+    color:#15803d;
+    font-size:48px;
+    margin:15px 0;
+}
+
+/* ==========================================
+   TABLES
+========================================== */
+
+.summary,
+.info{
+    margin-top:40px;
+}
+
+.metrics{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.metrics th{
+    background:#2563eb;
+    color:white;
+    padding:14px;
+}
+
+.metrics td{
+    padding:14px;
+    border-bottom:1px solid #ddd;
+}
+
+.metrics tr:nth-child(even){
+    background:#f7f7f7;
+}
+
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.dashboard-card{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+    text-align:center;
+    transition:.3s;
+}
+
+.dashboard-card:hover{
+    transform:translateY(-8px);
+}
+
+.dashboard-card h3{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.dashboard-card h1{
+    color:#15803d;
+    font-size:36px;
+}
+
+.dashboard-card h2{
+    margin:10px 0;
+}
+
+/* ==========================================
+   TIPS
+========================================== */
+
+.tips{
+    margin-top:40px;
+    background:#eff6ff;
+    border-radius:12px;
+    padding:30px;
+}
+
+.tips h2{
+    color:#1d3557;
+    margin-bottom:20px;
+}
+
+.tips ul{
+    padding-left:20px;
+}
+
+.tips li{
+    margin-bottom:12px;
+}
+
+/* ==========================================
+   INFO CARDS
+========================================== */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    margin-top:50px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+    margin-top:50px;
+    text-align:center;
+    color:#777;
+    font-size:15px;
+    padding-top:30px;
+    border-top:1px solid #ddd;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:32px;
+}
+
+.container{
+    width:95%;
+    padding:20px;
+}
+
+.result h1{
+    font-size:36px;
+}
+
+button{
+    font-size:18px;
+}
+
+nav{
+    font-size:22px;
+}
+
+}

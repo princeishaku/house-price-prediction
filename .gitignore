@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Mac
+.DS_Store
+
+# Model Cache
+*.pkl
+
+# Environment
+.env
+
+# Build
+dist/
+build/
+
+# Logs
+*.log

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>House Price Prediction</title>
+
+    <link rel="stylesheet"
+          href="/static/style.css">
+
+</head>
+
+<body>
+
+<nav>
+
+    🏡 House Price Prediction System
+
+</nav>
+
+<section class="hero">
+
+    <h1>
+
+        AI Powered House Price Prediction
+
+    </h1>
+
+    <p>
+
+        Estimate residential property prices using a Machine Learning model
+        trained on the Ames Housing Dataset.
+
+    </p>
+
+</section>
+
+<div class="container">
+
+    <form action="/"
+          method="post">
+
+        <h2>
+
+            Property Information
+
+        </h2>
+
+        <div class="grid">
+
+            <div>
+
+                <label>
+
+                    Overall Quality
+
+                </label>
+
+                <input
+                    type="number"
+                    name="OverallQual"
+                    min="1"
+                    max="10"
+                    required>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Ground Living Area (sq ft)
+
+                </label>
+
+                <input
+                    type="number"
+                    step="0.1"
+                    name="GrLivArea"
+                    required>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Garage Capacity
+
+                </label>
+
+                <input
+                    type="number"
+                    name="GarageCars"
+                    required>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Garage Area (sq ft)
+
+                </label>
+
+                <input
+                    type="number"
+                    step="0.1"
+                    name="GarageArea"
+                    required>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Basement Area
+
+                </label>
+
+                <input
+                    type="number"
+                    step="0.1"
+                    name="TotalBsmtSF"
+                    required>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Full Bathrooms
+
+                </label>
+
+                <input
+                    type="number"
+                    name="FullBath"
+                    required>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Year Built
+
+                </label>
+
+                <input
+                    type="number"
+                    name="YearBuilt"
+                    required>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Lot Area
+
+                </label>
+
+                <input
+                    type="number"
+                    step="0.1"
+                    name="LotArea"
+                    required>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Neighborhood
+
+                </label>
+
+                <select name="Neighborhood">
+
+                    <option value="NAmes">NAmes</option>
+
+                    <option value="CollgCr">CollgCr</option>
+
+                    <option value="OldTown">OldTown</option>
+
+                    <option value="Edwards">Edwards</option>
+
+                    <option value="BrkSide">BrkSide</option>
+
+                    <option value="Sawyer">Sawyer</option>
+
+                    <option value="Gilbert">Gilbert</option>
+
+                    <option value="NridgHt">NridgHt</option>
+
+                    <option value="Somerst">Somerst</option>
+
+                </select>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    MS Zoning
+
+                </label>
+
+                <select name="MSZoning">
+
+                    <option value="RL">RL</option>
+
+                    <option value="RM">RM</option>
+
+                    <option value="FV">FV</option>
+
+                    <option value="RH">RH</option>
+
+                    <option value="C (all)">C (all)</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <button type="submit">
+
+            Predict House Price
+
+        </button>
+            </form>
+
+    {% if prediction %}
+
+    <div class="result">
+
+        <h2>Estimated Market Value</h2>
+
+        <h1>{{ prediction }}</h1>
+
+        <p>
+            This prediction was generated using the trained Machine Learning model.
+        </p>
+
+    </div>
+
+    <div class="summary">
+
+        <h2>Property Summary</h2>
+
+        <table class="metrics">
+
+            <tr>
+                <th>Feature</th>
+                <th>Value</th>
+            </tr>
+
+            <tr>
+                <td>Overall Quality</td>
+                <td>{{ OverallQual }}</td>
+            </tr>
+
+            <tr>
+                <td>Living Area</td>
+                <td>{{ GrLivArea }} sq ft</td>
+            </tr>
+
+            <tr>
+                <td>Garage Capacity</td>
+                <td>{{ GarageCars }}</td>
+            </tr>
+
+            <tr>
+                <td>Garage Area</td>
+                <td>{{ GarageArea }} sq ft</td>
+            </tr>
+
+            <tr>
+                <td>Basement Area</td>
+                <td>{{ TotalBsmtSF }} sq ft</td>
+            </tr>
+
+            <tr>
+                <td>Bathrooms</td>
+                <td>{{ FullBath }}</td>
+            </tr>
+
+            <tr>
+                <td>Year Built</td>
+                <td>{{ YearBuilt }}</td>
+            </tr>
+
+            <tr>
+                <td>Lot Area</td>
+                <td>{{ LotArea }} sq ft</td>
+            </tr>
+
+            <tr>
+                <td>Neighborhood</td>
+                <td>{{ Neighborhood }}</td>
+            </tr>
+
+            <tr>
+                <td>MS Zoning</td>
+                <td>{{ MSZoning }}</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="dashboard">
+
+        <div class="dashboard-card">
+
+            <h3>Estimated Price</h3>
+
+            <h1>{{ prediction }}</h1>
+
+            <p>Predicted selling price.</p>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <h3>Property Quality</h3>
+
+            {% if OverallQual is not none %}
+
+                {% if OverallQual >= 8 %}
+
+                    <h2 style="color:green;">Excellent</h2>
+
+                {% elif OverallQual >= 6 %}
+
+                    <h2 style="color:orange;">Good</h2>
+
+                {% else %}
+
+                    <h2 style="color:red;">Average</h2>
+
+                {% endif %}
+
+            {% endif %}
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <h3>Living Area</h3>
+
+            <h2>{{ GrLivArea }} sq ft</h2>
+
+            <p>Total above-ground living area.</p>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <h3>Garage</h3>
+
+            <h2>{{ GarageCars }} Cars</h2>
+
+            <p>Vehicle capacity.</p>
+
+        </div>
+
+    </div>
+
+    <div class="tips">
+
+        <h2>AI Insights</h2>
+
+        <ul>
+
+            <li>Higher overall quality usually increases the selling price.</li>
+
+            <li>Larger living areas generally result in higher property values.</li>
+
+            <li>Garage size contributes positively to market value.</li>
+
+            <li>Neighborhood plays a major role in price prediction.</li>
+
+            <li>The estimate is generated using historical housing market data.</li>
+
+        </ul>
+
+    </div>
+
+    {% endif %}
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>Machine Learning</h3>
+
+            <p>
+                Trained using the Ames Housing Dataset with an end-to-end
+                Scikit-Learn pipeline.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>FastAPI</h3>
+
+            <p>
+                High-performance Python backend serving predictions in real time.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>XGBoost</h3>
+
+            <p>
+                Gradient boosting algorithm providing accurate house price estimates.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="info">
+
+        <h2>Project Information</h2>
+
+        <table class="metrics">
+
+            <tr>
+
+                <th>Component</th>
+
+                <th>Technology</th>
+
+            </tr>
+
+            <tr>
+
+                <td>Programming Language</td>
+
+                <td>Python</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Backend</td>
+
+                <td>FastAPI</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Machine Learning</td>
+
+                <td>Scikit-Learn Pipeline</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Algorithm</td>
+
+                <td>XGBoost Regressor</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Dataset</td>
+
+                <td>Ames Housing Dataset</td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    <footer>
+
+        © 2026 House Price Prediction System<br>
+
+        Built with ❤️ using Python, FastAPI, Scikit-Learn and XGBoost
+
+    </footer>
+
+</div>
+<script src="/static/script.js"></script>
+</body>
+
+</html>
